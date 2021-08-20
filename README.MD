@@ -10,13 +10,14 @@ See the [OpenFEMA website](https://www.fema.gov/open) to access dataset download
 
 ## Public Feedback & Contribution
 
-We encourage your feedback and contributions to this repositry. Content suggestions and discussions (specific to OpenFEMA) can be communicated in the following ways:
+We encourage your feedback and contributions to this repository. Content suggestions and discussions (specific to OpenFEMA) can be communicated in the following ways:
 
-- GitHub “issues.” Each issue is a conversation initiated by a member of the public. We encourage you to browse and join in on discussions in existing issues, or start a new conversation by opening a new issue.
+- GitHub “issues.” Each issue is a conversation about specific project work initiated by a member of the public.
+- GitHub "discussions". Each discussion is a project communication forum. Discussions are not specific to elements of work like a pull request. We encourage you to browse and join in on discussions or start a new conversation by creating a new discussion.
 - Direct changes and line edits to the content may be submitted through a "pull request" by clicking "Edit this page" on any site page in the repository. You do not need to install any software to suggest a change. You can use GitHub's in-browser editor to edit files and submit a pull request for your changes to be merged into the document. Directions on how to submit a pull request can be found on GitHub. 
 - Send your content suggestions or proposed revisions to the OpenFEMA team via email to openfema@fema.dhs.gov. Please note that all comments received may or may not be posted publicly on this page.
 
-We encourage you to read this project's [CONTRIBUTING](CONTRIBUTING.md) policy and its [LICENSE](LICENSE.md).
+We encourage you to read this project's [Code of Conduct](CODE_OF_CONDUCT.md), [CONTRIBUTING](CONTRIBUTING.md) policy and its [LICENSE](LICENSE.md).
 
 
 ## Public domain

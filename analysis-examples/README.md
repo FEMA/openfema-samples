@@ -13,3 +13,4 @@ We recommend that you review the [OpenFEMA API Documentation](https://www.fema.g
 
 - FEMA_Region_GeoJson.ipynb - Pulls data from the OpenFEMA Regions endpoint and converts the geometry to GeoJson files.
 - get_data-from_api_display_on_map.ipynb - Retrieves IHP Valid Registrant data for the state of LA, summarizes and graphs it, and displays values on a chloropleth map.
+- COVID_Data_From_API.ipynb - Retrieves COVID data from a variety of OpenFEMA API endpoints.
