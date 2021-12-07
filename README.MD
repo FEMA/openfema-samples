@@ -17,6 +17,8 @@ We encourage your feedback and contributions to this repository. Content suggest
 - Direct changes and line edits to the content may be submitted through a "pull request" by clicking "Edit this page" on any site page in the repository. You do not need to install any software to suggest a change. You can use GitHub's in-browser editor to edit files and submit a pull request for your changes to be merged into the document. Directions on how to submit a pull request can be found on GitHub. 
 - Send your content suggestions or proposed revisions to the OpenFEMA team via email to openfema@fema.dhs.gov. Please note that all comments received may or may not be posted publicly on this page.
 
+OpenFEMA now uses GovDelivery to inform users of system outages, dataset deprecations, new datasets, and new API features. Notifications will be infrequent - probably no more than one per month. FEMA respects your privacy and will never use your email for purposes other than OpenFEMA notifications. You may unsubscribe at any time. If interested, subscribe to [GovDelivery for OpenFEMA](https://public.govdelivery.com/accounts/USDHSFEMA/signup/31270).
+
 We encourage you to read this project's [Code of Conduct](CODE_OF_CONDUCT.md), [CONTRIBUTING](CONTRIBUTING.md) policy and its [LICENSE](LICENSE.md).
 
 
