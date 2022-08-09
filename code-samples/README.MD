@@ -5,7 +5,8 @@ Following are examples or recipes of commonly performed actions - many expressed
 We recommend that you review the [OpenFEMA API Documentation](https://www.fema.gov/about/openfema/api) for list of commands that can be used for each endpoint. As OpenFEMA’s main purpose is to act as a content delivery mechanism, each endpoint represents a data set. Therefore, the documentation does not outline each one; they all operate in the same manner. Metadata (content descriptions, update frequency, data dictionary, etc.) for each data set can be found on the individual data set pages. The [Data Sets](https://www.fema.gov/about/openfema/data-sets) page provides a list of the available endpoints.
 
 ## Disclaimer
-The point of these examples is to educate and inform. Therefore they have written in a manner to make them easy to read with the fewest number of external libraries as possible. There are more efficient or more concise or more structured or more flexible ways to accomplish the same tasks. Take what you need and modify it for your situation.
+The point of these examples is to educate and inform. Therefore they have written in a manner to make them easy to read with the fewest number of external libraries as possible. There are more efficient or more concise or more structured or more flexible ways to accomplish the same tasks. Take what you need and modify it for your situation. Be sure to build in appropriate error handling, retries, and
+other fault tolerance mechanisms.
 
 ## Other OpenFEMA Resources for Developers
 
@@ -23,6 +24,7 @@ The OpenFEMA API returns only 1,000 records at a time for performance reasons. I
 - api_paging_csvoutput.js
 - api_paging_jsonoutput.sh
 - api_paging_jsonoutput.py
+- api_paging_nfip_policies.r - Paging through the NFIP Policies file (60+ M records) in chunks.
 
 ### Coming Soon
 

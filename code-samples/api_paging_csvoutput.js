@@ -8,8 +8,8 @@ const fs = require('fs')
 let csvFile = './out.csv'
 var writeStream = fs.createWriteStream(csvFile, {flags:'a'});
 let skip = "skip=0"
-let metadataUrl = 'https://tdl.gis.fema.gov/openfema/api/open/v1/DisasterDeclarationsSummaries?$inlinecount=allpages&$top=1'
-let url = 'https://tdl.gis.fema.gov/openfema/api/open/v1/DisasterDeclarationsSummaries?$format=csv&$top=1000&$' + skip
+let metadataUrl = 'https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries?$inlinecount=allpages&$top=1'
+let url = 'https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries?$format=csv&$top=1000&$' + skip
 let totalDocs = 0
 let firstApiCall = true
 let csvHeader = ''
@@ -51,6 +51,7 @@ function getPromise(url) {
             });
         });
     });
+}
 
 // async function to make http request
 async function makeSynchronousRequest(url) {
@@ -65,6 +66,7 @@ async function makeSynchronousRequest(url) {
         // Promise rejected
         console.log(error);
     }
+}
 
 // anonymous async function to execute some code synchronously after http request
 (async function () {
@@ -103,3 +105,4 @@ function getTotalRows(){
         .on('end', function() {
             console.log("Total documents written to file ", numRows - 1);// we subtract 1 to account for the header
         });
+    }

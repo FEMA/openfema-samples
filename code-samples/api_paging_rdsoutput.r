@@ -8,7 +8,7 @@ require("httr")         # wrapper for curl package - may require installation
 
 datalist = list()       # a list that will hold the results of each call
 
-baseUrl <- "https://www.fema.gov/api/open/v1/FemaWebDisasterDeclarations?"
+baseUrl <- "https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?"
 
 # Determine record count. Specifying only 1 column here to reduce amount of data returned. 
 #   Remember to add criteria/filter here (if you have any) to get an accurate count.
@@ -38,6 +38,7 @@ for(i in seq(from=0, to=loopNum, by=1)){
     datalist[[i+1]] <- jsonData
 
     print(paste0("Iteration ", i, " done)"), quote=FALSE)
+}
 
 # binds many items in our list to one data frame
 fullData <- dplyr::bind_rows(datalist)
