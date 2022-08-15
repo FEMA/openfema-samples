@@ -15,12 +15,15 @@ OpenFEMA generally uses utilities and tools built into the Linux operating syste
 
 ### Search by event code – Child Abduction Emergency
 
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=contains(info/eventCode,%27{%22SAME%22:%20%22CAE%22}%27)&$top=10&$orderby=sent%20desc
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=contains(info/eventCode,%27{%22SAME%22:%20%22CAE%22}%27)%20and%20contains(info/area/geocode,%27{%22SAME%22:%22051059%22}%27)&$top=1&$orderby=sent%20desc
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=contains(infos/eventCode/value,%27CAE%27)&$top=10&$orderby=sent%20desc
+    
+### Search by event code – Child Abduction Emergency and by location
+
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=contains(infos/eventCode/value,%27CAE%27)%20and%20contains(infos/areas/geocode/value,%27051059%27)&$top=1&$orderby=sent%20desc
 
 ### Search by event code – Silver Alerts for 11/09/2019
 
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=(contains(info/eventCode,%27{%22SAME%22:%20%22ADR%22}%27)%20and%20(sent%20ge%20%272019-11-09T00:00:00.000Z%27%20and%20sent%20lt%20%272019-11-10T00:00:00.000Z%27))&$orderby=sent%20desc
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=(contains(infos/eventCode/value,%27ADR%27)%20and%20(sent%20ge%20%272019-11-09T00:00:00.000Z%27%20and%20sent%20lt%20%272019-11-10T00:00:00.000Z%27))&$orderby=sent%20desc
 
 ### Original CAP message only, by cogid
 
@@ -33,7 +36,7 @@ Selecting by state involves finding the state FIPS prefix and using a "startswit
     # IPAWS extract from OpenFEMA for California alerts between 1/1/2020 and 10/8/2020
     
     # Get IPAWS data from 01/01/2020 to 10/08/2020 3:00pm EST (IPAWS data on OpenFEMA has a 24 hour lag)
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$top=0&$filter=sent%20ge%20%272020-01-01%27%20and%20startswith(info/area/geocode/SAME,%27006%27)&$filename=ipaws_ca_cy2020.json
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$top=0&$filter=sent%20ge%20%272020-01-01%27%20and%20startswith(infos/areas/geocode/value,%27006%27)&$filename=ipaws_ca_cy2020.json
     
     # verified count of the records (9,753)
     jq '.IpawsArchivedAlerts | length' ipaws_ca_cy2020.json
@@ -61,33 +64,33 @@ The example below tries to identify those events associated with flooding. The f
 <br>
 
     # The first 1,000 (out of 3,345) IPAWS records for Lycoming County, PA (FIPS code 042081)
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=contains(info/area/geocode,%27{%22SAME%22:%22042081%22}%27)
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=contains(infos/areas/geocode/value,%27042081%27)
     
     # The first 1,000 (out of 3,050) IPAWS records for Clinton County, PA (FIPS code 042035)
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=contains(info/area/geocode,%27{%22SAME%22:%22042081%22}%27)
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=contains(infos/areas/geocode/value,%27042081%27)
     
     # IPAWS records for Lycoming County, PA, Severe Thunderstorm Warning (181 records)
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=(contains(info/area/geocode,%27{%22SAME%22:%22042081%22}%27))%20and%20(contains(info/eventCode,%27{%22SAME%22:%20%22SVR%22}%27))
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=(contains(infos/areas/geocode/value,%27042081%27))%20and%20(contains(infos/eventCode/value,%27SVR%27))
     
     # IPAWS records for Clinton County, PA, Severe Thunderstorm Warning (32 records)
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=(contains(info/area/geocode,%27{%22SAME%22:%22042035%22}%27))%20and%20(contains(info/eventCode,%27{%22SAME%22:%20%22FLW%22}%27))
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=(contains(infos/areas/geocode/value,%27042035%27))%20and%20(contains(infos/eventCode/value,%27FLW%27))
 
 ## Execute a Geospatial Query
 
 The entity/field/object to be searched is passed along with a bounding polygon or a point. The syntax for the polygon must be in the format of the example. Replace the coordinates with your own polygon coordinates in WKT (Well Known Text) format.
 
     # find alerts falling within the defined polygon 
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=geo.intersects(searchGeometry, geography 'POLYGON((34.38 -86.65,34.2 -86.72,34.31 -86.99,34.4 -86.94,34.38 -86.65))')
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$filter=geo.intersects(searchGeometry,geography'POLYGON((34.38 -86.65,34.2 -86.72,34.31 -86.99,34.4 -86.94,34.38 -86.65))')
     
 ## Retrieving Covid-19 Data
 
 Currently the IPAWS Historical Archive does not permit free form text searches within the alert description or title fields, making it difficult to search on the term "covid". It is possible to filter on eventCode, however alert issuers may not have tagged COVID related alerts with the same code. It looks like most were issued with the CEM (Civil Emergency Message) event code. Some appear under the SPW (Shelter In-place) event code. There may be non-COVID civil emergency and shelter in place events in this list. There may exist other COVID related alerts that are not associated with these event codes. The following examples will pull by event codes. The resulting data could be further refined with post processing.
 
     #The following query pulls messages with the CEM event type code from 01/01/2020:
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20contains(info/eventCode,%27{%22SAME%22:%20%22CEM%22}%27)
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20contains(infos/eventCode/value,%27CEM%27)
     
     #This will return SPW event codes:
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20contains(info/eventCode,%27{%22SAME%22:%20%22SPW%22}%27)
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20contains(infos/eventCode/value,%27SPW%27)
     
     # Event code searches can be combined as in:
-    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20(contains(info/eventCode,%27{%22SAME%22:%20%22CEM%22}%27)%20or%20contains(info/eventCode,%27{%22SAME%22:%20%22SPW%22}%27))
+    https://www.fema.gov/api/open/v1/IpawsArchivedAlerts?$inlinecount=allpages&$filter=sent%20gt%20%272020-01-01%27%20and%20(contains(infos/eventCode/value,%27CEM%27)%20or%20contains(infos/eventCode/value,%27SPW%27))
