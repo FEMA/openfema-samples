@@ -1,8 +1,6 @@
 ## Welcome!
 
-We're so glad you're thinking about contributing to the OpenFEMA project! If you're unsure about anything, just ask -- or submit the issue or pull request anyway. The worst that can happen is you'll be politely asked to change something. We love all friendly contributions.
-
-_I think it is important to add a "code of conduct" and possibly an "open source" policy here_
+We are so glad you're thinking about contributing to the OpenFEMA project! If you're unsure about anything, just ask -- or submit the issue or pull request anyway. The worst that can happen is you'll be politely asked to change something. We love all friendly contributions.
 
 If you have any questions, please [send us an email](mailto:openfema@fema.dhs.gov).
 
