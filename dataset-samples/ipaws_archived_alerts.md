@@ -1,8 +1,8 @@
 # IPAWS Archived Alerts Query Examples
 
-The Integrated Public Alert and Warning System (IPAWS) Archived Alerts data set is unique among OpenFEMA data sets in that the information is hierarchical in nature. Performing searches through the API can be challenging and the ability to filter, search, and sort IPAWS data is limited. In most cases it will be necessary to first download a subset based on a filter to limit data to a region or date, and then post-process offline with external tools.
+The Integrated Public Alert and Warning System (IPAWS) Archived Alerts dataset is unique among OpenFEMA data sets in that the information is hierarchical in nature. Performing searches through the API can be challenging and the ability to filter, search, and sort IPAWS data is limited. In most cases, it will be necessary to first download a subset based on a filter to limit data to a region or date, and then post-process offline with external tools.
 
-OpenFEMA generally uses utilities and tools built into the Linux operating system. For example, once downloaded a utility called jq can be used to extract and manipulate JSON data and even extract it into a CSV file. This has to be done with care however, because the hierarchical nature of CAP messages can introduce duplicate records in the results.
+OpenFEMA generally uses utilities and tools built into the Linux operating system. For example, once downloaded, a utility called jq can be used to extract and manipulate JSON data and even extract it into a CSV file. This has to be done with care however, because the hierarchical nature of CAP messages can introduce duplicate records in the results.
 
 ## Basic Filtering (via browser URL)
 ### By date
