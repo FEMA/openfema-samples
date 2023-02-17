@@ -3,7 +3,7 @@
 
 # Base URL for this endpoint with $inlinecount set to return total record count. Add 
 #   filters, column selection, and sort order to the end of the baseURL
-baseUrl='https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?$inlinecount=allpages'
+baseUrl='https://www.fema.gov/api/open/v1/FemaWebDisasterDeclarations?$inlinecount=allpages'
 
 # Return 1 record with your criteria to get total record count. Specifying only 1
 #   column here to reduce amount of data returned. The backslashes are needed before
