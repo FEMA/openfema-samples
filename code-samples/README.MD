@@ -26,6 +26,7 @@ The OpenFEMA API returns only 1,000 records at a time for performance reasons. I
 - api_paging_jsonoutput.sh - Retrieving data in json format using Bash script.
 - api_paging_jsonoutput.py - Retrieving data in json format using Python 3.
 - api_paging_nfip_policies.r - Paging through the NFIP Policies file (60+ M records) in chunks in R.
+- api_paging_power_bi_query_nfip_claims.txt - A paging example using Power BI M language. It is saved as a text file so the query remains readable as the .pbix file format is binary and propritary. Use the given text to create your own function.
 
 ### Miscellaneous 
 

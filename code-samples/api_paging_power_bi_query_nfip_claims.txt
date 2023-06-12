@@ -1,0 +1,35 @@
+// Power BI Query - M function to return multiple pages of NFIP Claims data subject to criteria.
+let
+// Power BI Query - M function to return multiple pages of NFIP Claims data subject to criteria.
+//  Data is returned as JSONA records that are split and converted to a table.
+let
+    // define URL for NFIP Claims V2 endpoint
+    baseUrl = "https://www.fema.gov/api/open/v2/FimaNfipClaims",
+
+    // define query using parameters - broward county FL
+    select = "",
+    filter = "countyCode eq '12011'",
+    limit = "10000",
+    format = "jsona",
+
+    // define a function that will request 10000 records using skip and top
+    getPage = (s) =>
+      let
+        source1 = Json.Document(Web.Contents(baseUrl,[Query = [
+            #"$select" = select,
+            #"$filter" = filter,
+            #"$top"    = limit,
+            #"$skip"   = Text.From(s),
+            #"$format" = format
+        ]]))
+      in
+        source1,
+        // create a loop here to call each 10000 chunk until nothing returned
+        allpages = List.Generate(()=> [skip = 0, res = getPage(0)], each not List.IsEmpty([res]), each [skip=[skip]+10000, res = getPage(skip)],each [res]),
+          #"Converted to Table" = Table.FromList(allpages, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+          #"Expanded Column1" = Table.ExpandListColumn(#"Converted to Table", "Column1"),
+          // this will break out the columns and assign the proper fieldnames
+          #"Expanded Column2" = Table.ExpandRecordColumn(#"Expanded Column1", "Column1", {"agricultureStructureIndicator", "asOfDate", "basementEnclosureCrawlspaceType", "policyCount", "crsClassificationCode", "dateOfLoss", "elevatedBuildingIndicator", "elevationCertificateIndicator", "elevationDifference", "baseFloodElevation", "ratedFloodZone", "houseWorship", "locationOfContents", "lowestAdjacentGrade", "lowestFloorElevation", "numberOfFloorsInTheInsuredBuilding", "nonProfitIndicator", "obstructionType", "occupancyType", "originalConstructionDate", "originalNBDate", "amountPaidOnBuildingClaim", "amountPaidOnContentsClaim", "amountPaidOnIncreasedCostOfComplianceClaim", "postFIRMConstructionIndicator", "rateMethod", "smallBusinessIndicatorBuilding", "totalBuildingInsuranceCoverage", "totalContentsInsuranceCoverage", "yearOfLoss", "primaryResidenceIndicator", "buildingDamageAmount", "buildingDeductibleCode", "netBuildingPaymentAmount", "buildingPropertyValue", "causeOfDamage", "condominiumCoverageTypeCode", "contentsDamageAmount", "contentsDeductibleCode", "netContentsPaymentAmount", "contentsPropertyValue", "disasterAssistanceCoverageRequired", "eventDesignationNumber", "ficoNumber", "floodCharacteristicsIndicator", "floodWaterDuration", "floodproofedIndicator", "floodEvent", "iccCoverage", "netIccPaymentAmount", "nfipRatedCommunityNumber", "nfipCommunityNumberCurrent", "nfipCommunityName", "nonPaymentReasonContents", "nonPaymentReasonBuilding", "numberOfUnits", "buildingReplacementCost", "contentsReplacementCost", "replacementCostBasis", "stateOwnedIndicator", "waterDepth", "floodZoneCurrent", "buildingDescriptionCode", "rentalPropertyIndicator", "state", "reportedCity", "reportedZipCode", "countyCode", "censusTract", "censusBlockGroupFips", "latitude", "longitude", "id"}, {"Column1.agricultureStructureIndicator", "Column1.asOfDate", "Column1.basementEnclosureCrawlspaceType", "Column1.policyCount", "Column1.crsClassificationCode", "Column1.dateOfLoss", "Column1.elevatedBuildingIndicator", "Column1.elevationCertificateIndicator", "Column1.elevationDifference", "Column1.baseFloodElevation", "Column1.ratedFloodZone", "Column1.houseWorship", "Column1.locationOfContents", "Column1.lowestAdjacentGrade", "Column1.lowestFloorElevation", "Column1.numberOfFloorsInTheInsuredBuilding", "Column1.nonProfitIndicator", "Column1.obstructionType", "Column1.occupancyType", "Column1.originalConstructionDate", "Column1.originalNBDate", "Column1.amountPaidOnBuildingClaim", "Column1.amountPaidOnContentsClaim", "Column1.amountPaidOnIncreasedCostOfComplianceClaim", "Column1.postFIRMConstructionIndicator", "Column1.rateMethod", "Column1.smallBusinessIndicatorBuilding", "Column1.totalBuildingInsuranceCoverage", "Column1.totalContentsInsuranceCoverage", "Column1.yearOfLoss", "Column1.primaryResidenceIndicator", "Column1.buildingDamageAmount", "Column1.buildingDeductibleCode", "Column1.netBuildingPaymentAmount", "Column1.buildingPropertyValue", "Column1.causeOfDamage", "Column1.condominiumCoverageTypeCode", "Column1.contentsDamageAmount", "Column1.contentsDeductibleCode", "Column1.netContentsPaymentAmount", "Column1.contentsPropertyValue", "Column1.disasterAssistanceCoverageRequired", "Column1.eventDesignationNumber", "Column1.ficoNumber", "Column1.floodCharacteristicsIndicator", "Column1.floodWaterDuration", "Column1.floodproofedIndicator", "Column1.floodEvent", "Column1.iccCoverage", "Column1.netIccPaymentAmount", "Column1.nfipRatedCommunityNumber", "Column1.nfipCommunityNumberCurrent", "Column1.nfipCommunityName", "Column1.nonPaymentReasonContents", "Column1.nonPaymentReasonBuilding", "Column1.numberOfUnits", "Column1.buildingReplacementCost", "Column1.contentsReplacementCost", "Column1.replacementCostBasis", "Column1.stateOwnedIndicator", "Column1.waterDepth", "Column1.floodZoneCurrent", "Column1.buildingDescriptionCode", "Column1.rentalPropertyIndicator", "Column1.state", "Column1.reportedCity", "Column1.reportedZipCode", "Column1.countyCode", "Column1.censusTract", "Column1.censusBlockGroupFips", "Column1.latitude", "Column1.longitude", "Column1.id"}),
+          // a count of total records to ensure everything retrieved
+          #"tablerowcount" = Table.RowCount(#"Expanded Column1")
+in #"Expanded Column2"
