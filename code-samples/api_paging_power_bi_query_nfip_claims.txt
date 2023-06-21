@@ -1,6 +1,4 @@
 // Power BI Query - M function to return multiple pages of NFIP Claims data subject to criteria.
-let
-// Power BI Query - M function to return multiple pages of NFIP Claims data subject to criteria.
 //  Data is returned as JSONA records that are split and converted to a table.
 let
     // define URL for NFIP Claims V2 endpoint
