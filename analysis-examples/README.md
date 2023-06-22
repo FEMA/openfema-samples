@@ -16,6 +16,7 @@ This repository also contains a series of OpenFEMA API tutorials. These tutorial
 - FEMA_Region_GeoJson.ipynb - Pulls data from the OpenFEMA Regions endpoint and converts the geometry to GeoJson files.
 - get_data-from_api_display_on_map.ipynb - Retrieves IHP Valid Registrant data for the state of LA, summarizes and graphs it, and displays values on a chloropleth map.
 - COVID_Data_From_API.ipynb - Retrieves COVID data from a variety of OpenFEMA API endpoints.
+- NFIPClaimsByYear.R - Using R, retrieves and computes the count of claims by year. Four different methods shown.
 - Tutorials:
   - API_Tutorial_Part_1_GettingStarted.ipynb - Basic tutorial on using the OpenFEMA API demonstrating a call to an endpoint.
   - API_Tutorial_Part_2_QueryParameters.ipynb - Provides usage examples for all of the API query parameters.
