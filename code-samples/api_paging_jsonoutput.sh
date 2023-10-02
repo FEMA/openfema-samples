@@ -1,7 +1,7 @@
 #!/bin/bash
 # Paging example using bash. Output in JSON.
 
-baseUrl='https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?$inlinecount=allpages'
+baseUrl='https://www.fema.gov/api/open/v1/FemaWebDisasterDeclarations?$inlinecount=allpages'
 
 # Return 1 record with your criteria to get total record count. Specifying only 1
 #   column here to reduce amount of data returned. The backslashes are needed before

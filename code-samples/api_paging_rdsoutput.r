@@ -8,7 +8,7 @@ require("httr")         # wrapper for curl package - may require installation
 
 datalist = list()       # a list that will hold the results of each call
 
-baseUrl <- "https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?"
+baseUrl <- "https://www.fema.gov/api/open/v1/FemaWebDisasterDeclarations?"
 
 # Determine record count. Specifying only 1 column here to reduce amount of data returned. 
 #   Remember to add criteria/filter here (if you have any) to get an accurate count.
