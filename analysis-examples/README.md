@@ -17,6 +17,8 @@ This repository also contains a series of OpenFEMA API tutorials. These tutorial
 - get_data-from_api_display_on_map.ipynb - Retrieves IHP Valid Registrant data for the state of LA, summarizes and graphs it, and displays values on a chloropleth map.
 - COVID_Data_From_API.ipynb - Retrieves COVID data from a variety of OpenFEMA API endpoints.
 - NFIPClaimsByYear.R - Using R, retrieves and computes the count of claims by year. Four different methods shown.
+- NFIP_Claims_demo.ipynb - A series of examples for producing basic statistics related to NFIP claims. Essentialy, an introduction to the types of analytics that can be performed using the OpenFEMA NIFP Claims dataset.
+- NFIP_Policies_demo.ipynb - A series of examples for producing basic statistics related to NFIP policies. Essentialy, an introduction to the types of analytics that can be performed using the OpenFEMA NIFP Policies dataset.
 - Tutorials:
   - API_Tutorial_Part_1_GettingStarted.ipynb - Basic tutorial on using the OpenFEMA API demonstrating a call to an endpoint.
   - API_Tutorial_Part_2_QueryParameters.ipynb - Provides usage examples for all of the API query parameters.
