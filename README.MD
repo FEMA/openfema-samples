@@ -36,9 +36,11 @@ Note: FEMA does not endorse any of the projects mentioned in this list. FEMA did
 
 ### Analysis
 
-- [Predicting Disaster Costs using OpenFEMA](https://github.com/gcox32/FEMA) - A series of Jupyter notebooks that use OpenFEMA data as part of a statistical analysis and machine learning project.
+- [Analyzing FEMA's National Flood Insurance Program (NFIP) Data With DuckDB](https://github.com/mebauer/duckdb-fema-nfip/) - A Jupyter notebook demonstrating the use of the Python DuckDB library to perform NFIP analysis.
 - [Exploration of FEMA National Flood Insurance Program Data](https://github.com/samroeslin/National-Flood-Insurance-Program) - A casual project whose intent was to develop a procedure for developing insights from flood claims data and to enable identification of critical parameters affecting losses. Jupyter notebooks.
-- [How Disastes Affect Housing Prices](https://github.com/bandipara/fema_analytics) - FEMA data correlated to Zillow data to explore the relationship between disasters and housing prices.
+- [Exploring National Flood Insurance Program (NFIP) Data for New York City](https://github.com/mebauer/fema-nfip-nyc) - A set of Jupyter notebooks that perform analysis on NFIP data using the Python programming language.
+- [How Disasters Affect Housing Prices](https://github.com/bandipara/fema_analytics) - FEMA data correlated to Zillow data to explore the relationship between disasters and housing prices.
+- [Predicting Disaster Costs using OpenFEMA](https://github.com/gcox32/FEMA) - A series of Jupyter notebooks that use OpenFEMA data as part of a statistical analysis and machine learning project.
 
 ## Public domain
 
