@@ -18,6 +18,8 @@ The point of these examples is to educate and inform. Therefore, they have been 
 ## Contents
 ### Paging Examples
 
+__NOTE: If you are looking for paging code, please review the Paging Tutorial referenced below. It contains examples using the new $allrecords argument to retrieve data without having to iterate through data.__
+
 The OpenFEMA API returns only 1,000 records at a time for performance reasons. If your query returns more than this, it will be necessary to make subsequent calls to capture all the records. This will require the use of the $top and $skip API parameters. See the API documentation for parameter specifics. See [OpenFEMA API Tutorial: Part 3 - Paging to Get Data](https://github.com/FEMA/openfema-samples/blob/master/analysis-examples/API_Tutorial_Part_3_PagingToGetData.ipynb) for a detailed walkthrough. The following files illustrate this concept using different languages, and in some cases, different output formats.
 
 - api_paging_rdsoutput.r - Retrieving data in json format using R, but saving as RDS file.
