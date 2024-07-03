@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # Paging example using Python 3. Output in JSON.
 
+# There is now have an option to retrieve data without using pagination. The new $allrecords flag forces all records to be
+#   returned as part of a download rather than the maximum return limit in order to simplify the download of large sets of data. By
+#   default, queries with more results than specified by $top will require pagination. By adding $allrecords=true you can override 
+#   this behavior. For more information read openfema-samples/analysis-examples/API_Tutorial_Part_3_PagingToGetData.ipynb
+
 import sys
 import urllib.request
 import json
@@ -10,7 +15,7 @@ from datetime import datetime
 # Base URL for this endpoint. Add filters, column selection, and sort order to this.
 baseUrl = "https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?"
 
-top = 1000      # number of records to get per call
+top = 10000      # number of records to get per call, this value was increased from 1000 to 10000 in 2023
 skip = 0        # number of records to skip
 
 # Return 1 record with your criteria to get total record count. Specifying only 1
@@ -19,7 +24,7 @@ webUrl = urllib.request.urlopen(baseUrl + "$inlinecount=allpages&$select=id&$top
 result = webUrl.read()
 jsonData = json.loads(result.decode())
 
-# calculate the number of calls we will need to get all of our data (using the maximum of 1000)
+# calculate the number of calls we will need to get all of our data (using the maximum of 10000). 
 recCount = jsonData['metadata']['count']
 loopNum = math.ceil(recCount / top)
 
