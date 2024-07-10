@@ -13,7 +13,7 @@ import math
 from datetime import datetime
 
 # Base URL for this endpoint. Add filters, column selection, and sort order to this.
-baseUrl = "https://www.fema.gov/api/open/v2/FemaWebDisasterDeclarations?"
+baseUrl = "https://www.fema.gov/api/open/v1/FemaWebDisasterDeclarations?"
 
 top = 10000      # number of records to get per call, this value was increased from 1000 to 10000 in 2023
 skip = 0        # number of records to skip
