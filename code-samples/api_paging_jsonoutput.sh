@@ -1,7 +1,7 @@
 #!/bin/bash
 # Paging example using bash. Output in JSON.
 
-# There is now have an option to retrieve data without using pagination. The new $allrecords flag forces all records to be
+# There is now an option to retrieve data without using pagination. The new $allrecords flag forces all records to be
 #   returned as part of a download rather than the maximum return limit in order to simplify the download of large sets of data. By
 #   default, queries with more results than specified by $top will require pagination. By adding $allrecords=true you can override 
 #   this behavior. For more information read openfema-samples/analysis-examples/API_Tutorial_Part_3_PagingToGetData.ipynb
