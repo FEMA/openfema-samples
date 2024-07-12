@@ -18,6 +18,7 @@ queryParameters = {
     '$metadata': 'off'
 }
 
+# location for where the query results are saved
 saveLocation = './out.csv'
 
 def saveLargeQuery(baseUrl, queryParameters, saveLocation):
@@ -42,17 +43,17 @@ def saveLargeQuery(baseUrl, queryParameters, saveLocation):
 
 def verifyCsvDownload(saveLocation):
     try:
-        # opens the csv file
-        with open(saveLocation, "r") as csvfile:
+        # opens the csv file using 'with/as' syntax which handles the closing of the file when needed
+        with open(saveLocation, "r") as csvfile:            
             csv_reader = csv.reader(csvfile)
             next(csv_reader, None)                          # skips the header row
             record_count = sum(1 for row in csv_reader)     # count records
-            if(record_count <1):                            # if no records throw an error
+            if(record_count <1):                            # if no records throw an exception
                 raise Exception("No data found in the specified file")
         print(f'Record Count: {record_count}')
-    except Exception as error:                              # logic for displaying exceptions
+    except Exception as error:                              # logic for displaying thrown exceptions
         print(error)
-    except:                                                 # catch all error
+    except:                                                 # catch all error when something else goes wrong
         print('The file was unable to be read, there may be something wrong with the file')
         
 # Run the dave method
