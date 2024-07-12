@@ -1,4 +1,8 @@
-# declare a URL handling module
+# Data retrieval example using Python 3 with json output. This example utilizes the urllib 
+#   library and $allrecords, storing the entire query in memory before writing it to a file 
+#   it is simpler however may crash if there is insufficient memory, especially with the largest datasets
+#   when handling large amounts of data look at one of the code examples with streaming instead
+
 import urllib.request
 import json
 
@@ -12,6 +16,9 @@ orderby = "&$orderby=id"                                                     # o
 format = "&$format=json"    
 other = "&$allrecords=true&$metadata=off"                                    # return all records, suppress metadata
 
+# location for where the query results are saved
+saveLocation = './out.json'
+
 # issue api call
 request = urllib.request.urlopen(baseUrl + select + filter + orderby + format + other)
 result = request.read()
@@ -22,12 +29,16 @@ result = request.read()
 
 # save to file: NOTE: this example saves all records to a variable, this is faster and works well for smaller querries, 
 #   with the larger datasets, this can cause memory problems and lead to crashes
-outFile = open("dds_output.json", "w")
-outFile.write(str(result,'utf-8'))
-outFile.close()
+with open(saveLocation, "w") as writefile:
+    writefile.write(str(result,'utf-8'))
+
 
 # lets re-open the file and see if we got the number of records we expected
-inFile = open("dds_output.json", "r")
-# my_data = json.load(inFile)
-# print(str(len(my_data['DisasterDeclarationsSummaries'])) + " records in file")
-# inFile.close()
+with open(saveLocation, "r") as readfile:
+    try:
+        my_data = json.load(readfile)
+        print(str(len(my_data['DisasterDeclarationsSummaries'])) + " records in file")
+    except Exception as error:
+        print(error)
+    except:
+        print("Something went wrong, the records could not be counted")
