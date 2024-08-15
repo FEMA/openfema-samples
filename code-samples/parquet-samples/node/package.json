@@ -1,0 +1,16 @@
+{
+  "name": "openfema-parquet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api_allrecords_parquet.js",
+  "dependencies": {
+    "@dsnp/parquetjs": "^1.7.0"
+  },
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
