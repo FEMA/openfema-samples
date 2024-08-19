@@ -1,5 +1,5 @@
 /* A very basic express app to serve a static HTML page for viewing geojson data. All of the actual code
- *  is in /public
+ *  is in /public. This sample can be executed with the command 'node start.js'
 */
 
 const express = require('express')
