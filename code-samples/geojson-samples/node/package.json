@@ -1,0 +1,14 @@
+{
+  "name": "openfema-geojson",
+  "version": "1.0.0",
+  "description": "example code for using openfema geojson data in node",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kvanderlyn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
