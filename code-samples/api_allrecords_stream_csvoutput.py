@@ -13,7 +13,7 @@ queryParameters = {
     '$select': 'disasterNumber,declarationDate,declarationTitle,state',     # leave this parameter out if you want all fields
     '$filter': 'state%20ne%20%27FL%27',                                     # for purposes of example, exclude Florida
     '$orderby': 'id',                                                       # order is unimportant to me, so I am ordering by id
-    '$format': 'csv',                                                       # request csv because that's the type we wish to output
+    '$format': 'csv',                                                       
     '$allrecords': 'true',                                                  # set $allrecords to true to avoid dealing with pagination
     '$metadata': 'off'
 }
