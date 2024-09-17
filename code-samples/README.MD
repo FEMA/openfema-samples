@@ -16,30 +16,13 @@ The point of these examples is to educate and inform. Therefore, they have been 
 - The [OpenFEMA Guide to Large Data Sets](https://www.fema.gov/about/openfema/working-with-large-data-sets) provides recommendations and techniques for working with OpenFEMA's large data files. 
 
 ## Contents
-### Paging Examples
 
 __NOTE: If you are looking for paging code, please review the Paging Tutorial referenced below. It contains examples using the new $allrecords argument to retrieve data without having to iterate through data.__
 
-The OpenFEMA API returns only 1,000 records at a time for performance reasons. If your query returns more than this, it will be necessary to make subsequent calls to capture all the records. This will require the use of the $top and $skip API parameters. See the API documentation for parameter specifics. See [OpenFEMA API Tutorial: Part 3 - Paging to Get Data](https://github.com/FEMA/openfema-samples/blob/master/analysis-examples/API_Tutorial_Part_3_PagingToGetData.ipynb) for a detailed walkthrough. The following files illustrate this concept using different languages, and in some cases, different output formats.
-
-- api_paging_rdsoutput.r - Retrieving data in json format using R, but saving as RDS file.
-- api_paging_csvoutput.sh - Retrieving data in csv format using Bash script.
-- api_paging_csvoutput.js - Retrieving data in csv format using javascript.
-- api_paging_jsonoutput.sh - Retrieving data in json format using Bash script.
-- api_paging_jsonoutput.py - Retrieving data in json format using Python 3.
-- api_paging_nfip_policies.r - Paging through the NFIP Policies file (60+ M records) in chunks in R.
-- api_paging_power_bi_query_nfip_claims.txt - A paging example using Power BI M language. It is saved as a text file so the query remains readable as the .pbix file format is binary and propritary. Use the given text to create your own function.
-
-### Miscellaneous 
-
-- AWK-samples.md - Bash script examples using AWK to pull NFIP data and aggregate financial values.
-
-### Coming Soon
-
-- .NET and Java paging examples (if you have any, please consider contributing)
-- Downloading full files
-- Periodic updates instead of full downloads
-- Checking for dataset data updates
-- Converting JSON to a different format
-- Working with different time formats
-- Using the metadata endpoints
+- Paging Examples - The OpenFEMA API returns only 1,000 records at a time for performance reasons. If your query returns more than this, it will be necessary to make subsequent calls to capture all the records. This will require the use of the $top and $skip API parameters. See the API documentation for parameter specifics. See [OpenFEMA API Tutorial: Part 3 - Paging to Get Data](https://github.com/FEMA/openfema-samples/blob/master/analysis-examples/API_Tutorial_Part_3_PagingToGetData.ipynb) for a detailed walkthrough. 
+- All Records Examples - OpenFEMA recently added a new parameter that permits all records matching criteria to be returned without paging. Several examples have been included to demonstrate this.
+- Performing Updates - Code samples to illustrate retrieving dataset updates rather than download full datasets
+- GeoJSON Samples - Examples on how to work with GeoJSON data.
+- Parquet Samples - Examples on how to work with Parquet files.
+- Miscellaneous 
+  - AWK-samples.md - Bash script examples using AWK to pull NFIP data and aggregate financial values.
