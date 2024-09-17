@@ -25,3 +25,4 @@ This repository also contains a series of OpenFEMA API tutorials. These tutorial
   - API_Tutorial_Part_3_PagingToGetData.ipynb - Illustrates making multiple endpoint calls to capture all the data.
   - API_Tutorial_Part_4_Metadata.ipynb - Demonstrates the use of the OpenFEMA metadata API endpoints
   - API_Tutorial_Part_5_GettingDatasetUpdates.ipynb - Demonstrates how to retrieve only dataset updates, rather than perform full downloads. 
+  - API_Tutorial_Part_6_FileFormats.ipynb - Usage examples for the various file types offered by the OpenFEMA API.
