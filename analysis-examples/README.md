@@ -26,3 +26,4 @@ This repository also contains a series of OpenFEMA API tutorials. These tutorial
   - API_Tutorial_Part_4_Metadata.ipynb - Demonstrates the use of the OpenFEMA metadata API endpoints
   - API_Tutorial_Part_5_GettingDatasetUpdates.ipynb - Demonstrates how to retrieve only dataset updates, rather than perform full downloads. 
   - API_Tutorial_Part_6_FileFormats.ipynb - Usage examples for the various file types offered by the OpenFEMA API.
+  - API_Tutorial_Part_6_JoiningWithNonFEMAData.ipynb - Demonstrates how to connect OpenFEMA API data with external data from other government agencies. Examples include joining data from: U.S. Census, SAM.gov, USASpending.gov, the Federal Register, and the National Weather Service.
